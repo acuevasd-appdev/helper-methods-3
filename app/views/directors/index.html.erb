@@ -1,31 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  List of all directors
+</h1>
 
-<h1>Directors</h1>
+<hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Dob</th>
-      <th>Bio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div>
+  <%= link_to "Add a new director", new_director_path %>
+</div>
 
-  <tbody>
-    <% @directors.each do |director| %>
-      <tr>
-        <td><%= director.name %></td>
-        <td><%= director.dob %></td>
-        <td><%= director.bio %></td>
-        <td><%= link_to 'Show', director %></td>
-        <td><%= link_to 'Edit', edit_director_path(director) %></td>
-        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<hr>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+     <% @directors.each do |director| %>
+      <div class="col">
+      <%= render partial: "directors/director_card", locals: { dir: director}%>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Director', new_director_path %>
+  </div>
+</div>
