@@ -1,0 +1,60 @@
+<div class="card">
+  
+  <div class="card-header">
+    <%= link_to "Movie ##{mov.id}", mov %>
+  </div>
+
+  <div class="card-body">
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= mov.title %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= mov.description %>
+      </dd>
+
+      <dt>
+        Director
+      </dt>
+      <dd>
+        <%= mov.director_id %>
+      </dd>
+
+      <dt>
+        Released on
+      </dt>
+      <dd>
+        <%= mov.released_on.strftime("%b %d %Y")%>
+      </dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <div class="d-grid">
+          <%= link_to edit_movie_path(mov), class: "btn btn-outline-secondary" do %>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-grid">
+          <%= link_to mov, method: :delete, class: "btn btn-outline-secondary" do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    Last updated <%= time_ago_in_words(mov.updated_at) %> ago
+  </div>
+</div>
